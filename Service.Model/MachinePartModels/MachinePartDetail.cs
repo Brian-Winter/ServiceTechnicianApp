@@ -8,5 +8,10 @@ namespace Service.Model.MachinePartModels
 {
     public class MachinePartDetail
     {
+        public string PartName { get; set; }
+        public string PartNumber { get; set; }
+        public decimal Cost { get; set; }
+        public int NumberInStock { get; set; }
+        public bool AvailableToOrder { get; set; }
     }
 }

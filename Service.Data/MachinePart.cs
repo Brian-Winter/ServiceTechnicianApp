@@ -15,6 +15,8 @@ namespace Service.Data
         [Required]
         public string PartNumber { get; set; }
         [Required]
+        public string PartName { get; set; }
+        [Required]
         public decimal Cost { get; set; }
         [Required]
         public int NumberInStock { get; set; }

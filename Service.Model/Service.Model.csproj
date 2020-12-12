@@ -58,6 +58,10 @@
     <Compile Include="MachineModels\MachineDetail.cs" />
     <Compile Include="MachineModels\MachineEdit.cs" />
     <Compile Include="MachineModels\MachineListDetail.cs" />
+    <Compile Include="MachinePartModels\MachinePartCreate.cs" />
+    <Compile Include="MachinePartModels\MachinePartDetail.cs" />
+    <Compile Include="MachinePartModels\MachinePartEdit.cs" />
+    <Compile Include="MachinePartModels\MachinePartListAll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomerModels\" />
-    <Folder Include="PartModels\" />
     <Folder Include="ServiceFormModels\" />
     <Folder Include="UserModels\" />
   </ItemGroup>
