@@ -22,12 +22,12 @@ namespace Service.Data
         public long MeterReadTwo { get; set; }
         public decimal CostDue { get; set; }
         public Guid UserId { get; set; }
-        public virtual ApplicationUser Application { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         [ForeignKey(nameof(Machine))]
         public int MachineId { get; set; }
         public virtual Machine Machine { get; set; }
-        [ForeignKey(nameof(Part))]
-        public int PartId { get; set; }
-        public virtual Part Part { get; set; }
+        [ForeignKey(nameof(MachinePart))]
+        public int MachinePartId { get; set; }
+        public virtual MachinePart MachinePart { get; set; }
     }
 }

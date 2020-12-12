@@ -26,7 +26,7 @@ namespace Service.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        public DbSet<Part> Parts { get; set; }
+        public DbSet<MachinePart> MachineParts { get; set; }
         public DbSet<Machine> Machines { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<ServiceForm> ServiceForms { get; set; }

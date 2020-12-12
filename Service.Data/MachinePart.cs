@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Service.Data
 {
-   public class Part
+   public class MachinePart
     {
         [Key]
-        public int PartId { get; set; }
+        public int MachinePartId { get; set; }
         [Required]
         public string PartNumber { get; set; }
         [Required]
@@ -20,8 +20,6 @@ namespace Service.Data
         public int NumberInStock { get; set; }
         [Required]
         public bool AvailableToOrder { get; set; }
-        [ForeignKey(nameof(Machine))]
-        public int MachineId { get; set; }
-        public virtual Machine Machine { get; set; }
+       
     }
 }
