@@ -54,15 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerModels\CustomerCreate.cs" />
+    <Compile Include="CustomerModels\CustomerDetails.cs" />
+    <Compile Include="CustomerModels\CustomerEdit.cs" />
+    <Compile Include="CustomerModels\CustomerListAll.cs" />
     <Compile Include="MachineModels\MachineCreate.cs" />
     <Compile Include="MachineModels\MachineDetail.cs" />
     <Compile Include="MachineModels\MachineEdit.cs" />
-    <Compile Include="MachineModels\MachineListDetail.cs" />
+    <Compile Include="MachineModels\MachineListAll.cs" />
     <Compile Include="MachinePartModels\MachinePartCreate.cs" />
     <Compile Include="MachinePartModels\MachinePartDetail.cs" />
     <Compile Include="MachinePartModels\MachinePartEdit.cs" />
     <Compile Include="MachinePartModels\MachinePartListAll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceFormModels\ServiceFormCreate.cs" />
+    <Compile Include="ServiceFormModels\ServiceFormDetails.cs" />
+    <Compile Include="ServiceFormModels\ServiceFormEdit.cs" />
+    <Compile Include="ServiceFormModels\ServiceFormListAll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -75,8 +83,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomerModels\" />
-    <Folder Include="ServiceFormModels\" />
     <Folder Include="UserModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

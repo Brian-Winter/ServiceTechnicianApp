@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.Model.MachineModels
 {
-    public class MachineListDetail
+    public class MachineListAll
     {
         [Display(Name = "Machine Name")]
         public string Name { get; set; }

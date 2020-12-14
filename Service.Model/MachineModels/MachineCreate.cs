@@ -9,7 +9,7 @@ namespace Service.Model.MachineModels
 {
     public class MachineCreate
     {
-        public int MachineId { get; set; }
+       
         public long SerialNumber { get; set; }
         public string Name { get; set; }
         [Range(1,4, ErrorMessage = "Please enter a valid number of drawers.")]

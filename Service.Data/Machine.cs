@@ -12,7 +12,6 @@ namespace Service.Data
     {
         [Key]
         public int MachineId { get; set; }
-        [Required]
         public long SerialNumber { get; set; }
         [Required]
         public string MachineName { get; set; }
