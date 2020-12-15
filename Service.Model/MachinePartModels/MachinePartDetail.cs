@@ -8,6 +8,7 @@ namespace Service.Model.MachinePartModels
 {
     public class MachinePartDetail
     {
+        public int MachinePartId { get; set; }
         public string PartName { get; set; }
         public string PartNumber { get; set; }
         public decimal Cost { get; set; }

@@ -72,7 +72,23 @@ namespace Service.Services
             }
         }
         //EDIT
+        public bool EditMachinePart(MachinePartEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                                .MachineParts
+                                .Single(e => e.MachinePartId == model.MachinePartId);
 
+                entity.PartName = model.PartName;
+                entity.PartNumber = model.PartNumber;
+                entity.Cost = model.Cost;
+                entity.NumberInStock = model.NumberInStock;
+                entity.AvailableToOrder = model.AvailableToOrder;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }

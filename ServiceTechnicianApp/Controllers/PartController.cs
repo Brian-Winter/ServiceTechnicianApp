@@ -52,7 +52,21 @@ namespace ServiceTechnicianApp.Controllers
             return View(model);
         }
         //GET: EDIT
-
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePartService();
+            var detail = service.GetMachinePartById(id);
+            var model = new MachinePartEdit
+            {
+                MachinePartId = detail.MachinePartId,
+                PartName = detail.PartName,
+                PartNumber = detail.PartNumber,
+                Cost = detail.Cost,
+                NumberInStock = detail.NumberInStock,
+                AvailableToOrder = detail.AvailableToOrder
+            };
+            return View(model);
+        }
         //POST: EDIT
     }
 }
