@@ -1,0 +1,78 @@
+﻿using Service.Data;
+using Service.Model.MachinePartModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Service.Services
+{
+    public class PartService
+    {
+
+        //READ ALL
+        public IEnumerable<MachinePartListAll> GetPartsList()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .MachineParts
+                        .Select(
+                          e =>
+                            new MachinePartListAll
+                            {
+                                MachinePartId = e.MachinePartId,
+                                PartName = e.PartName,
+                                PartNumber = e.PartNumber,
+                                Cost = e.Cost
+                            }
+
+
+                        );
+                return query.ToArray();
+            }
+        }
+        //READ SINGLE
+        public MachinePartDetail GetMachinePartById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                                .MachineParts
+                                .Single(e => e.MachinePartId == id);
+                return
+                    new MachinePartDetail
+                    {
+                        PartName = entity.PartName,
+                        PartNumber = entity.PartNumber,
+                        Cost = entity.Cost,
+                        NumberInStock = entity.NumberInStock,
+                        AvailableToOrder = entity.AvailableToOrder
+                    };
+            }
+        }
+        //CREATE
+        public bool CreatePart(MachinePartCreate model)
+        {
+
+            var entity = new MachinePart()
+            {
+                
+                PartNumber = model.PartNumber,
+                PartName = model.PartName,
+                Cost = model.Cost,
+                AvailableToOrder = model.AvailableToOrder
+            };
+            using(var ctx = new ApplicationDbContext())
+            {
+                ctx.MachineParts.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        //EDIT
+
+
+    }
+}
