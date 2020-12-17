@@ -1,0 +1,52 @@
+﻿@model Service.Model.MachineModels.MachineDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MachineDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+     
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MachineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MachineName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfDrawers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfDrawers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.MachineId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -11,9 +11,7 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MachineId)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.MachineName)
         </th>
@@ -31,9 +29,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MachineId)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.MachineName)
         </td>
@@ -47,9 +43,9 @@
             @Html.DisplayFor(modelItem => item.Color)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id = item.MachineId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MachineId }) |
+            
         </td>
     </tr>
 }

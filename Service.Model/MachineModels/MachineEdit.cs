@@ -9,9 +9,10 @@ namespace Service.Model.MachineModels
 {
    public class MachineEdit
     {
+        public int MachineId { get; set; }
         public long SerialNumber { get; set; }
         [Display(Name = "Machine Name")]
-        public string Name { get; set; }
+        public string MachineName { get; set; }
         [Range(1, 4, ErrorMessage = "Please enter a valid number of drawers.")]
         public int NumberOfDrawers { get; set; }
         [Display(Name = "Prints Per Minute By D-Size")]

@@ -34,12 +34,63 @@ namespace Service.Services
         //Read Single
         public MachineDetail GetMachineById(int id)
         {
-
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Machines
+                                .Single(e => e.MachineId == id);
+                return new MachineDetail
+                {
+                    MachineId = query.MachineId,
+                    MachineName = query.MachineName,
+                    SerialNumber = query.SerialNumber,
+                    NumberOfDrawers = query.NumberOfDrawers,
+                    Color = query.Color
+                };
+                
+            }
         }
         //Create
+        public bool CreateMachine(MachineCreate model)
+        {
+            var entity = new Machine()
+            {
+                SerialNumber = model.SerialNumber,
+                MachineName = model.MachineName,
+                NumberOfDrawers = model.NumberOfDrawers,
+                SpeedPerMinute = model.SpeedPerMinute,
+                Color = model.Color,
+                Cost = model.Cost,
+                
 
+            };
+            using(var ctx = new ApplicationDbContext())
+            {
+                ctx.Machines.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
         //Edit
+        public bool EditMachine(MachineEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                                .Machines
+                                .Single(e => e.MachineId == model.MachineId);
 
+                
+                entity.SerialNumber = model.SerialNumber;
+                entity.MachineName = model.MachineName;
+                entity.NumberOfDrawers = model.NumberOfDrawers;
+                entity.SpeedPerMinute = model.SpeedPerMinute;
+                entity.Color = model.Color;
+                
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
 
     }
 }

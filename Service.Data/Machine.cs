@@ -23,8 +23,8 @@ namespace Service.Data
         public bool Color { get; set; }
         
         public decimal Cost { get; set; }
-        [ForeignKey(nameof(MachinePart))]
-        public List<string> PartNumber { get; set; }
-        public MachinePart MachinePart {get; set; }
+        //[ForeignKey(nameof(MachinePart))]
+        //public List<string> PartNumber { get; set; }
+        //public MachinePart MachinePart {get; set; }
     }
 }
