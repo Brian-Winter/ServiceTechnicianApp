@@ -68,5 +68,27 @@ namespace ServiceTechnicianApp.Controllers
             return View(model);
         }
         //POST: EDIT
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, MachinePartEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                
+                return View(model);
+            }
+            if(model.MachinePartId != id)
+            {
+                ModelState.AddModelError("", "ID mismatch");
+                return View(model);
+            }
+            var service = CreatePartService();
+            if (service.EditMachinePart(model))
+            {
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "An error has occured.");
+            return View(model);
+        }
     }
 }

@@ -9,8 +9,9 @@ namespace Service.Model.MachineModels
 {
     public class MachineListAll
     {
+        public int MachineId { get; set; }
         [Display(Name = "Machine Name")]
-        public string Name { get; set; }
+        public string MachineName { get; set; }
         public long SerialNumber { get; set; }
         [Display(Name = "Drawers")]
         public int NumberOfDrawers { get; set; }

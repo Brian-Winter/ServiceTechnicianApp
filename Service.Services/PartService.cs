@@ -45,6 +45,7 @@ namespace Service.Services
                 return
                     new MachinePartDetail
                     {
+                        MachinePartId = entity.MachinePartId,
                         PartName = entity.PartName,
                         PartNumber = entity.PartNumber,
                         Cost = entity.Cost,
