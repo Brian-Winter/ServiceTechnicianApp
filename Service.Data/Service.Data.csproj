@@ -58,21 +58,13 @@
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="MachinePart.cs" />
-    <Compile Include="Migrations\202012122033246_first migration.cs" />
-    <Compile Include="Migrations\202012122033246_first migration.Designer.cs">
-      <DependentUpon>202012122033246_first migration.cs</DependentUpon>
+    <Compile Include="Migrations\202101050248333_first.cs" />
+    <Compile Include="Migrations\202101050248333_first.Designer.cs">
+      <DependentUpon>202101050248333_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012122052283_updated machinepart data.cs" />
-    <Compile Include="Migrations\202012122052283_updated machinepart data.Designer.cs">
-      <DependentUpon>202012122052283_updated machinepart data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012142337430_changed requires in Machine.cs" />
-    <Compile Include="Migrations\202012142337430_changed requires in Machine.Designer.cs">
-      <DependentUpon>202012142337430_changed requires in Machine.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012170302278_Edit Machine Data.cs" />
-    <Compile Include="Migrations\202012170302278_Edit Machine Data.Designer.cs">
-      <DependentUpon>202012170302278_Edit Machine Data.cs</DependentUpon>
+    <Compile Include="Migrations\202101050249116_change-nullable.cs" />
+    <Compile Include="Migrations\202101050249116_change-nullable.Designer.cs">
+      <DependentUpon>202101050249116_change-nullable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,17 +75,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012122033246_first migration.resx">
-      <DependentUpon>202012122033246_first migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101050248333_first.resx">
+      <DependentUpon>202101050248333_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012122052283_updated machinepart data.resx">
-      <DependentUpon>202012122052283_updated machinepart data.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012142337430_changed requires in Machine.resx">
-      <DependentUpon>202012142337430_changed requires in Machine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012170302278_Edit Machine Data.resx">
-      <DependentUpon>202012170302278_Edit Machine Data.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101050249116_change-nullable.resx">
+      <DependentUpon>202101050249116_change-nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

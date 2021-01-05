@@ -187,7 +187,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\SiteStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -243,10 +242,12 @@
     <Content Include="Views\Part\Create.cshtml" />
     <Content Include="Views\Part\Details.cshtml" />
     <Content Include="Views\Part\Edit.cshtml" />
-    <Content Include="Views\Machine\Index.cshtml" />
     <Content Include="Views\Machine\Create.cshtml" />
     <Content Include="Views\Machine\Details.cshtml" />
     <Content Include="Views\Machine\Edit.cshtml" />
+    <Content Include="Views\Machine\Index.cshtml" />
+    <Content Include="Views\Machine\CreateSerial.cshtml" />
+    <Content Include="Views\Machine\Machine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

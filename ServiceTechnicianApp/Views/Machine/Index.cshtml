@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Base Machine", "Create")
 </p>
 <table class="table">
     <tr>
@@ -15,9 +15,7 @@
         <th>
             @Html.DisplayNameFor(model => model.MachineName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SerialNumber)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.NumberOfDrawers)
         </th>
@@ -29,13 +27,11 @@
 
 @foreach (var item in Model) {
     <tr>
-        
+       
         <td>
             @Html.DisplayFor(modelItem => item.MachineName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SerialNumber)
-        </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.NumberOfDrawers)
         </td>
@@ -44,10 +40,11 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.MachineId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MachineId }) |
-            
+            @Html.ActionLink("Create Serial Number", "CreateSerial", new { id = item.MachineId }) |
+            @Html.ActionLink("Machine", "Machine", new { id = item.MachineName })
         </td>
     </tr>
 }
 
 </table>
+@Html.ActionLink("Machine", "Machine")

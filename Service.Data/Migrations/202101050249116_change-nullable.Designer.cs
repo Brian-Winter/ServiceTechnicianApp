@@ -7,13 +7,13 @@ namespace Service.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class changedrequiresinMachine : IMigrationMetadata
+    public sealed partial class changenullable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changedrequiresinMachine));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changenullable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012142337430_changed requires in Machine"; }
+            get { return "202101050249116_change-nullable"; }
         }
         
         string IMigrationMetadata.Source

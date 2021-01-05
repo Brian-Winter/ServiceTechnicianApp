@@ -11,13 +11,54 @@ namespace Service.Services
     public class MachineService
     {
 
-        //Read All
-        public IEnumerable<MachineListAll> GetAllMachines()
+        //Read All Assigned Machines
+        public IEnumerable<MachineListAll> GetViewBaseMachines()
         {
             using(var ctx = new ApplicationDbContext())
             {
                 var query = ctx
                                 .Machines
+                                .Where(e => e.SerialNumber == 0)
+                                .Select(
+                                    e => new MachineListAll
+                                    {
+                                        MachineId = e.MachineId,
+                                        MachineName = e.MachineName,
+                                        SerialNumber = e.SerialNumber,
+                                        NumberOfDrawers = e.NumberOfDrawers,
+                                        Color = e.Color
+                                    }
+                                );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<MachineListAll> GetAllMachinesbyName(string id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Machines
+                                .Where(e => e.SerialNumber != 0 && e.MachineName == id)
+                                .Select(
+                                    e => new MachineListAll
+                                    {
+                                        MachineId = e.MachineId,
+                                        MachineName = e.MachineName,
+                                        SerialNumber = e.SerialNumber,
+                                        NumberOfDrawers = e.NumberOfDrawers,
+                                        Color = e.Color
+                                    }
+                                );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<MachineListAll> GetAllMachines()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Machines
+                                .Where(e => e.SerialNumber != 0 )
                                 .Select(
                                     e => new MachineListAll
                                     {
@@ -48,6 +89,25 @@ namespace Service.Services
                     Color = query.Color
                 };
                 
+            }
+        }
+        //Read Single Create
+        public MachineCreate GetMachineByIdForSerial(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Machines
+                                .Single(e => e.MachineId == id);
+                return new MachineCreate
+                {
+                   
+                    MachineName = query.MachineName,
+                    SerialNumber = 0,
+                    NumberOfDrawers = query.NumberOfDrawers,
+                    Color = query.Color
+                };
+
             }
         }
         //Create

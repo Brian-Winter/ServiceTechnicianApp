@@ -3,14 +3,8 @@
     padding-bottom: 20px;
    
 }
-body a{
-    color:green;
-    border:solid black 1px;
-    border-radius: 10px;
-}
-#front{
-    color:white;
-}
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -31,6 +25,23 @@ select,
 textarea {
     max-width: 280px;
 }
-.navbar{
-    background-color: #00a9e8;
+.navbar {
+    background-color: #5bc0de;
+   
+}
+
+.square-box {
+    padding: 30px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #4493aa;
+}
+
+.center .row{
+    margin: 5px auto;
+  
+}
+.footer{
+    position:fixed;
+    bottom: 0;
 }
