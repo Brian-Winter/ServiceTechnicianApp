@@ -34,17 +34,13 @@ namespace ServiceTechnicianApp.Controllers
             }
             return View(model);
         }
-        //GET: Create
-        public ActionResult Create()
-        {
-            return View();
-        }
         public ActionResult CreateSerial(int id)
         {
             var service = CreateMachineService();
             var model = service.GetMachineByIdForSerial(id);
             return View(model);
         }
+        //GET: Create Add Serial Number
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateSerial(MachineCreate model)
@@ -61,6 +57,11 @@ namespace ServiceTechnicianApp.Controllers
             }
             ModelState.AddModelError("", "Machine could not be created.");
             return View(model);
+        }
+        //GET: Create
+        public ActionResult Create()
+        {
+            return View();
         }
         //POST: Create
         [HttpPost]

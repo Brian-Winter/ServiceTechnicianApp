@@ -22,9 +22,9 @@ namespace Service.Data
         public string Address { get; set; }
         [Required]
         public bool ServiceContract { get; set; }
-        //[ForeignKey(nameof(Machine))]
-        //public int MachineId { get; set; }
-        //public virtual Machine Machine { get; set; }
+        [ForeignKey(nameof(Machine))]
+        public int MachineId { get; set; }
+        public virtual Machine Machine { get; set; }
 
     }
 }

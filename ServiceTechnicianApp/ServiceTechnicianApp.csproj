@@ -248,10 +248,11 @@
     <Content Include="Views\Machine\Index.cshtml" />
     <Content Include="Views\Machine\CreateSerial.cshtml" />
     <Content Include="Views\Machine\Machine.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customer\" />
     <Folder Include="Views\ServiceForm\" />
   </ItemGroup>
   <ItemGroup>
