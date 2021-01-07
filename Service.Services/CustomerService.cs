@@ -32,7 +32,47 @@ namespace Service.Services
             }
         }
         //READ SINGLE
+        public CustomerDetails GetCustomerById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Customers
+                                .Single(e => e.CustomerId == id);
+                return new CustomerDetails
+                {
+                    CompanyName = query.CompanyName,
+                    City = query.City,
+                    State = query.State,
+                    Address = query.Address,
+                    ServiceContract = query.ServiceContract,
+                    MachineId = query.MachineId
+                };
+            }
+        }
+        //READ ALL BY SERVICE CONTRACT TRUE
+        public IEnumerable<CustomerDetails> GetCustomersByContract()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Customers
+                                .Where(e => e.ServiceContract == true)
+                                .Select(
+                                    e => new CustomerDetails
+                                    {
+                                        CompanyName = e.CompanyName,
+                                        City = e.City,
+                                        State = e.State,
+                                        Address = e.Address,
+                                        ServiceContract = e.ServiceContract,
+                                        MachineId = e.MachineId
+                                    }
 
+                                );
+                return query.ToArray();
+            }
+        }
         //CREATE
        public bool CreateCustomer(CustomerCreate model)
         {

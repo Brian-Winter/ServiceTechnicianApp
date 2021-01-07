@@ -47,7 +47,19 @@ namespace ServiceTechnicianApp.Controllers
         }
        
         //GET: Details
+        public ActionResult Details(int id)
+        {
+            var service = CreateCustomerService();
+            var model = service.GetCustomerById(id);
+            return View(model);
+        }
         //GET: Details by Active Service Contract
+        public ActionResult DetailsByServiceContract()
+        {
+            var service = CreateCustomerService();
+            var model = service.GetCustomersByContract();
+            return View(model);
+        }
         //GET: Edit
         //POST: Edit
 

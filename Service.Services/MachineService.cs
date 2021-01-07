@@ -91,7 +91,7 @@ namespace Service.Services
                 
             }
         }
-        //Read Single Create
+        //Read Single & Create Serial
         public MachineCreate GetMachineByIdForSerial(int id)
         {
             using (var ctx = new ApplicationDbContext())
