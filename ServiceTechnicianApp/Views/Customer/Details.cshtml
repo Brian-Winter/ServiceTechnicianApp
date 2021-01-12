@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Customer Details</h2>
 
 <div>
-    <h4>CustomerDetails</h4>
+    <h4>Customer Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -64,11 +64,12 @@
 
         <dd>
             @Html.DisplayFor(model => model.MachineId)
+            @Html.ActionLink("View Machine Details", "Machine/Details", new { id = Model.MachineId})
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.CustomerId  }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -91,7 +91,24 @@ namespace Service.Services
                 
             }
         }
-        //Read Single & Create Serial
+        public MachineDetail GetMachineBySerialNumber(long id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Machines
+                                .Single(e => e.SerialNumber == id);
+                return new MachineDetail
+                {
+                    MachineId = query.MachineId,
+                    MachineName = query.MachineName,
+                    NumberOfDrawers = query.NumberOfDrawers,
+                    Color = query.Color
+                };
+
+            }
+        }
+        //Read Single & Create Serialover
         public MachineCreate GetMachineByIdForSerial(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -113,6 +130,7 @@ namespace Service.Services
         //Create
         public bool CreateMachine(MachineCreate model)
         {
+            
             var entity = new Machine()
             {
                 SerialNumber = model.SerialNumber,

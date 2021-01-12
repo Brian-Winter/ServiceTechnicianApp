@@ -61,7 +61,44 @@ namespace ServiceTechnicianApp.Controllers
             return View(model);
         }
         //GET: Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCustomerService();
+            var details = service.GetCustomerById(id);
+            var model = new CustomerEdit
+            {
+                CustomerId = details.CustomerId,
+                CompanyName = details.CompanyName,
+                City = details.City,
+                State = details.State,
+                Address = details.Address,
+                ServiceContract = details.ServiceContract,
+                MachineId = details.MachineId
+            };
+            return View(model);
+        }
         //POST: Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CustomerEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            if(model.CustomerId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateCustomerService();
 
+            if (service.EditCustomer(model))
+            {
+                return RedirectToAction("index");
+            }
+            ModelState.AddModelError("", "An error has occured, the customer information could not be updated.");
+            return View(model);
+        }
     }
 }

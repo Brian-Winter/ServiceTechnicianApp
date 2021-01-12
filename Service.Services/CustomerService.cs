@@ -1,5 +1,6 @@
 ﻿using Service.Data;
 using Service.Model.CustomerModels;
+using Service.Model.MachineModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace Service.Services
 {
     public class CustomerService
     {
+
+
         //READ ALL
         public IEnumerable<CustomerListAll> ViewAllCustomers()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx
                                 .Customers
@@ -73,21 +76,60 @@ namespace Service.Services
                 return query.ToArray();
             }
         }
+
+
+
+
         //CREATE
-       public bool CreateCustomer(CustomerCreate model)
+        public bool CreateCustomer(CustomerCreate model)
         {
-            var entity = new Customer()
-            {
-                CompanyName = model.CompanyName,
-                City = model.City,
-                State = model.State,
-                Address = model.Address,
-                ServiceContract = model.ServiceContract,
-                MachineId = model.MachineId
-            };
+            
+            //loop with serial number to find a matching number, than find id in that match, assign match
+           using (var ctx = new ApplicationDbContext())
+           {
+                var _listOfMachine = new MachineService();
+                int newMachineId = 1;
+                foreach (var prop in ctx.Machines)
+                {
+                    if (model.MachineId == prop.SerialNumber)
+                    {
+                      newMachineId = _listOfMachine.GetMachineBySerialNumber(prop.SerialNumber).MachineId;
+                 
+
+                    
+                     
+                    };
+                
+                } 
+                    var entity = new Customer()
+                        {
+                            CompanyName = model.CompanyName,
+                            City = model.City,
+                            State = model.State,
+                            Address = model.Address,
+                            ServiceContract = model.ServiceContract,
+                            MachineId = newMachineId
+                        };
+                     ctx.Customers.Add(entity);
+                        return ctx.SaveChanges() == 1;
+           }
+            
+        }
+        //EDIT
+        public bool EditCustomer(CustomerEdit model)
+        {
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Customers.Add(entity);
+                var entity = ctx.Customers
+                                .Single(e => e.CustomerId == model.CustomerId);
+
+                entity.CompanyName = model.CompanyName;
+                entity.City = model.City;
+                entity.State = model.State;
+                entity.Address = model.Address;
+                entity.ServiceContract = model.ServiceContract;
+                entity.MachineId = model.MachineId;
+
                 return ctx.SaveChanges() == 1;
             }
         }
