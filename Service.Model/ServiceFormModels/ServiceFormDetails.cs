@@ -9,6 +9,7 @@ namespace Service.Model.ServiceFormModels
 {
     public class ServiceFormDetails
     {
+        public int FormId { get; set; }
         [Display(Name = "Arrival Time")]
         public DateTime StartTime { get; set; }
         [Display(Name = "Departure Time")]
@@ -25,5 +26,6 @@ namespace Service.Model.ServiceFormModels
         public Guid UserId { get; set; }
         public int MachineId { get; set; }
         public int MachinePartId { get; set; }
+        public int CustomerId { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿    using System;
+﻿using Service.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,10 +10,24 @@ namespace ServiceTechnicianApp.Controllers
     public class ServiceFormController : Controller
     {
         [Authorize]
+        private ServiceFormService CreateFormService()
+        {
+            var service = new ServiceFormService();
+            return service;
+        }
         // GET: ServiceForm
         public ActionResult Index()
         {
-            return View();
+            var service = CreateFormService();
+            var model = service.ViewAllForms();
+            return View(model);
         }
+        //GET: CREATE
+        //POST: CREATE
+        //GET: DETAILS
+        //GET: EDIT
+        //POST: EDIT
+        //GET: DELETE
+        //POST: DELETE
     }
 }
