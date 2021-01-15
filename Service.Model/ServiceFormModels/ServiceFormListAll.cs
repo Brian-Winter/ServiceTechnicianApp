@@ -15,5 +15,6 @@ namespace Service.Model.ServiceFormModels
         public Guid UserId { get; set; }
         public int MachineId { get; set; }
         public int MachinePartId { get; set; }
+        public int CustomerId { get; set; }
     }
 }

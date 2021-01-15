@@ -23,5 +23,6 @@ namespace Service.Model.ServiceFormModels
         public decimal CostDue { get; set; }
         public int MachineId { get; set; }
         public int MachinePartId { get; set; }
+        public int CustomerId { get; set; }
     }
 }

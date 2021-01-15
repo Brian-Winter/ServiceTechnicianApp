@@ -7,17 +7,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace Service.Services
 {
     public class ServiceFormService
     {
+        CustomerService _listOfCustomers = new CustomerService();
+        MachineService _listOfMachines = new MachineService();
+        PartService _listOfParts = new PartService();
         private readonly Guid _userId;
         public ServiceFormService(Guid userId)
         {
             _userId = userId;
         }
+        public ServiceFormService() { }
         //READ ALL
+       
         public IEnumerable<ServiceFormListAll> ViewAllForms()
         {
             using( var ctx = new ApplicationDbContext())
@@ -64,11 +70,11 @@ namespace Service.Services
 
             }
         }
-        private long FindSerialNumber(long serialNumber)
+        private int FindMachineId(long serialNumber)
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var _listOfMachines = new MachineService();
+              
                 int machineId = 1;
                 foreach ( var prop in ctx.Machines)
                 {
@@ -80,17 +86,60 @@ namespace Service.Services
                 return machineId;
             }
         }
-        private string FindPartNumber(string partNumber)
+        private int FindPartId(string partNumber)
         {
-
+            using(var ctx = new ApplicationDbContext())
+            {
+               
+                int partId = 1;
+                foreach (var prop in ctx.MachineParts)
+                {
+                    if(partNumber == prop.PartNumber)
+                    {
+                        partId = _listOfParts.GetMachinePartByPartNumber(prop.PartNumber).MachinePartId;
+                    }
+                }
+                return partId;
+            }
+        }
+        private int FindCustomerId(string companyName)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+               
+                int customerId = 1;
+                foreach(var prop in ctx.Customers)
+                {
+                    if(companyName == prop.CompanyName)
+                    {
+                        customerId = _listOfCustomers.GetCustomerIdByCompanyName(prop.CompanyName).CustomerId;
+                    }
+                }
+                return customerId;
+            }
         }
         //CREATE
         public bool CreateServiceForm(ServiceFormCreate model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var _listOfParts = new PartService();
-                var _listOfMachines = new MachineService();
+               
+                var entity = new ServiceForm()
+                {
+                    CustomerId = FindCustomerId(model.CustomerId),
+                    StartTime = model.StartTime,
+                    FinishTime = model.FinishTime,
+                    Completed = model.Completed,
+                    MeterReadOne = model.MeterReadOne,
+                    MeterReadTwo = model.MeterReadTwo,
+                    CostDue = model.CostDue,
+                    UserId = _userId,
+                    MachinePartId = FindPartId(model.MachinePartId),
+                    MachineId = FindMachineId(model.MachineId)
+
+                };
+                ctx.ServiceForms.Add(entity);
+                return ctx.SaveChanges() == 1;
             }
         }
         //EDIT

@@ -253,10 +253,11 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\DetailsByServiceContract.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\ServiceForm\Index.cshtml" />
+    <Content Include="Views\ServiceForm\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ServiceForm\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

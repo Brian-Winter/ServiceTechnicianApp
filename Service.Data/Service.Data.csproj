@@ -70,6 +70,10 @@
     <Compile Include="Migrations\202101070254456_customer-data.Designer.cs">
       <DependentUpon>202101070254456_customer-data.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101140354386_serviceformtwo.cs" />
+    <Compile Include="Migrations\202101140354386_serviceformtwo.Designer.cs">
+      <DependentUpon>202101140354386_serviceformtwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceForm.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101070254456_customer-data.resx">
       <DependentUpon>202101070254456_customer-data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101140354386_serviceformtwo.resx">
+      <DependentUpon>202101140354386_serviceformtwo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

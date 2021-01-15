@@ -53,6 +53,20 @@ namespace Service.Services
                 };
             }
         }
+        //READ SINGLE BY COMPANY NAME
+        public CustomerDetails GetCustomerIdByCompanyName(string id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .Customers
+                                .Single(e => e.CompanyName == id);
+                return new CustomerDetails
+                {
+                   CustomerId = query.CustomerId
+                };
+            }
+        }
         //READ ALL BY SERVICE CONTRACT TRUE
         public IEnumerable<CustomerDetails> GetCustomersByContract()
         {

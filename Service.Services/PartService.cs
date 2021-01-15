@@ -54,6 +54,20 @@ namespace Service.Services
                     };
             }
         }
+        //READ SINGLE BY PART NUMBER
+        public MachinePartDetail GetMachinePartByPartNumber(string partNumber)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                                .MachineParts
+                                .Single(e => e.PartNumber == partNumber);
+                return new MachinePartDetail
+                {
+                    MachinePartId = entity.MachinePartId
+                };
+            }
+        }
         //CREATE
         public bool CreatePart(MachinePartCreate model)
         {

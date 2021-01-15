@@ -22,8 +22,12 @@ namespace Service.Model.ServiceFormModels
         [Display(Name = "Amount Due on Completion")]
         public decimal CostDue { get; set; }
         public Guid UserId { get; set; }
+        [Display(Name = "Serial Number")]
         public int MachineId { get; set; }
-        public int MachinePartId { get; set; }
+        [Display(Name = "Part Number Used")]
+        public string MachinePartId { get; set; }
+        [Display(Name = "Company Name")]
+        public string CustomerId { get; set; }
 
     }
 }
