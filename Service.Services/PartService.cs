@@ -104,6 +104,19 @@ namespace Service.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        //EDIT Quanity in Stock 
+        public bool UpdateQuantityInStock(int model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.MachineParts
+                                .Single(e => e.MachinePartId == model);
+
+                entity.NumberInStock--;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }

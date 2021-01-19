@@ -9,6 +9,7 @@ namespace Service.Model.ServiceFormModels
 {
     public class ServiceFormEdit
     {
+        public int FormId { get; set; }
         [Display(Name = "Problem Resolved")]
         public bool Completed { get; set; }
         [Display(Name = "Arrival Time")]

@@ -138,13 +138,46 @@ namespace Service.Services
                     MachineId = FindMachineId(model.MachineId)
 
                 };
+                _listOfParts.UpdateQuantityInStock(FindPartId(model.MachinePartId));
                 ctx.ServiceForms.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
         //EDIT
-        //DELETE
+        public bool EditServiceForm(ServiceFormEdit model)
+        {
+            using( var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                                .ServiceForms
+                                .Single(e => e.FormId == model.FormId);
+                entity.Completed = model.Completed;
+                entity.StartTime = model.StartTime;
+                entity.FinishTime = model.FinishTime;
+                entity.MeterReadOne = model.MeterReadOne;
+                entity.MeterReadTwo = model.MeterReadTwo;
+                entity.CostDue = model.CostDue;
+                entity.MachineId = model.MachineId;
+                entity.MachinePartId = model.MachinePartId;
+                entity.CustomerId = model.CustomerId;
 
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        //DELETE
+        public bool DeleteServiceForm(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.ServiceForms
+                                .Single(e => e.FormId == id);
+
+                ctx.ServiceForms.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+
+
+            }
 
     }
 }

@@ -51,9 +51,62 @@ namespace ServiceTechnicianApp.Controllers
 
         }
         //GET: DETAILS
+        public ActionResult Details(int id)
+        {
+            var service = CreateFormService();
+            var model = service.GetFormById(id);
+            return View(model);
+        }
         //GET: EDIT
+        public ActionResult Edit(int id)
+        {
+            var service = CreateFormService();
+            var detail = service.GetFormById(id);
+            var model = new ServiceFormEdit
+            {
+                FormId = detail.FormId,
+                Completed = detail.Completed,
+                StartTime = detail.StartTime,
+                FinishTime = detail.FinishTime,
+                MeterReadOne = detail.MeterReadOne,
+                MeterReadTwo = detail.MeterReadTwo,
+                CostDue = detail.CostDue,
+                MachineId = detail.MachineId,
+                MachinePartId = detail.MachinePartId,
+                CustomerId = detail.CustomerId
+
+            };
+            return View(model);
+        }
         //POST: EDIT
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ServiceFormEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            if(model.FormId != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+            }
+            var service = CreateFormService();
+
+            if (service.EditServiceForm(model))
+            {
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "An error has occured.");
+            return View(model);
+        }
         //GET: DELETE
+        public ActionResult Delete(int id)
+        {
+            var service = CreateFormService();
+            var model = service.DeleteServiceForm(id);
+            return View(model);
+        }
         //POST: DELETE
     }
 }

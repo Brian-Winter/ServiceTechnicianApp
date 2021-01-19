@@ -255,6 +255,9 @@
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\ServiceForm\Index.cshtml" />
     <Content Include="Views\ServiceForm\Create.cshtml" />
+    <Content Include="Views\ServiceForm\Details.cshtml" />
+    <Content Include="Views\ServiceForm\Edit.cshtml" />
+    <Content Include="Views\ServiceForm\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
