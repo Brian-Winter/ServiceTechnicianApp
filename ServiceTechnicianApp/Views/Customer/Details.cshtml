@@ -57,14 +57,16 @@
         <dd>
             @Html.DisplayFor(model => model.ServiceContract)
         </dd>
-        Cell
+        
         <dt>
             @Html.DisplayNameFor(model => model.MachineId)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.MachineId)
-            @Html.ActionLink("View Machine Details", "Machine/Details", new { id = Model.MachineId})
+            @Html.ActionLink("View Machine Details", "Details", "Machine", new { id = Model.MachineId },"" )
+
+
         </dd>
 
     </dl>
