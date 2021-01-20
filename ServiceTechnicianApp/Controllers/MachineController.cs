@@ -127,5 +127,26 @@ namespace ServiceTechnicianApp.Controllers
             ModelState.AddModelError("", "Your note was unable to be updated.");
             return View(model);
         }
+        //GET: DELETE
+         [ActionName("Delete")]
+         public ActionResult Delete(int id)
+        {
+            var service = CreateMachineService();
+            var model = service.GetMachineById(id);
+            return View(model);
+        }
+        //POST: DELETE
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteMachine(int id)
+        {
+            var service = CreateMachineService();
+
+            service.DeleteMachine(id);
+
+            return RedirectToAction("Index");
+        }
+        
     }
 }

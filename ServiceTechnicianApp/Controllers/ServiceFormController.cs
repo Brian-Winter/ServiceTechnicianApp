@@ -54,7 +54,7 @@ namespace ServiceTechnicianApp.Controllers
         public ActionResult Details(int id)
         {
             var service = CreateFormService();
-            var model = service.GetFormById(id);
+            var model = service.GetFormForDetails(id);
             return View(model);
         }
         //GET: EDIT
@@ -101,12 +101,23 @@ namespace ServiceTechnicianApp.Controllers
             return View(model);
         }
         //GET: DELETE
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
             var service = CreateFormService();
-            var model = service.DeleteServiceForm(id);
+            var model = service.GetFormById(id);
             return View(model);
         }
-        //POST: DELETE
+       // POST: DELETE
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteServiceForm(int id)
+        {
+            var service = CreateFormService();
+
+            service.DeleteServiceForm(id);
+            return RedirectToAction("Index", "Home", "Index");
+        }
     }
 }

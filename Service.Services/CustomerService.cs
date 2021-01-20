@@ -147,5 +147,18 @@ namespace Service.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        //Delete
+        public bool DeleteCustomer(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Customers
+                                .Single(e => e.CustomerId == id);
+
+                ctx.Customers.Remove(entity);
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
     }
 }

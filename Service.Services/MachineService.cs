@@ -169,6 +169,18 @@ namespace Service.Services
 
             }
         }
+        //Delete
+        public bool DeleteMachine(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Machines
+                                .Single(e => e.MachineId == id);
+
+                ctx.Machines.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }

@@ -48,28 +48,73 @@ namespace Service.Services
         //READ SINGLE
         public ServiceFormDetails GetFormById(int id)
         {
-            using (var ctx = new ApplicationDbContext())
+            using(var ctx = new ApplicationDbContext())
             {
                 var query = ctx
                                 .ServiceForms
                                 .Single(e => e.FormId == id);
+
                 return new ServiceFormDetails
                 {
-                    CustomerId = query.CustomerId,
+                    
                     StartTime = query.StartTime,
                     FinishTime = query.FinishTime,
                     Completed = query.Completed,
                     MeterReadOne = query.MeterReadOne,
                     MeterReadTwo = query.MeterReadTwo,
                     CostDue = query.CostDue,
-                    UserId = query.UserId,
-                    MachineId = query.MachineId,
-                    MachinePartId = query.MachinePartId
+                    MachineId = query.MachineId
 
                 };
 
             }
         }
+        public ServiceFormDisplayDetails GetFormForDetails(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .ServiceForms
+                                .Single(e => e.FormId == id);
+
+                return new ServiceFormDisplayDetails
+                {
+
+                    StartTime = query.StartTime,
+                    FinishTime = query.FinishTime,
+                    Completed = query.Completed,
+                    MeterReadOne = query.MeterReadOne,
+                    MeterReadTwo = query.MeterReadTwo,
+                    CostDue = query.CostDue,
+                    MachineId = FindMachineName(query.MachineId),
+                    MachinePartId = FindPartName(query.MachinePartId),
+                    CustomerId = FindCustomerId(query.CustomerId),
+                    UserId = query.UserId
+
+                };
+
+            }
+        }
+        //Display Machine Name
+        private string FindMachineName(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+
+                string machineName = "";
+                foreach (var prop in ctx.Machines)
+                {
+                    if (id == prop.MachineId)
+                    {
+                        machineName = _listOfMachines.GetMachineById(prop.MachineId).MachineName;
+                    }
+                }
+                return machineName;
+            }
+        }
+        //Find Machine Id by SerialNumber to Save 
+        //This allows the user to always use a serial number 
+        //versus looking up a spefic Id of a machine
         private int FindMachineId(long serialNumber)
         {
             using(var ctx = new ApplicationDbContext())
@@ -86,6 +131,22 @@ namespace Service.Services
                 return machineId;
             }
         }
+        private string FindPartName(int partId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+                string partName = "";
+                foreach (var prop in ctx.MachineParts)
+                {
+                    if (partId == prop.MachinePartId)
+                    {
+                        partName = _listOfParts.GetMachinePartById(prop.MachinePartId).PartName;
+                    }
+                }
+                return partName;
+            }
+        }
         private int FindPartId(string partNumber)
         {
             using(var ctx = new ApplicationDbContext())
@@ -100,6 +161,23 @@ namespace Service.Services
                     }
                 }
                 return partId;
+            }
+        }
+        
+       private string FindCustomerId(int companyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+                string customerName = "";
+                foreach (var prop in ctx.Customers)
+                {
+                    if (companyId == prop.CustomerId)
+                    {
+                        customerName = _listOfCustomers.GetCustomerById(prop.CustomerId).CompanyName;
+                    }
+                }
+                return customerName;
             }
         }
         private int FindCustomerId(string companyName)
@@ -178,6 +256,6 @@ namespace Service.Services
 
 
             }
-
+        }
     }
 }

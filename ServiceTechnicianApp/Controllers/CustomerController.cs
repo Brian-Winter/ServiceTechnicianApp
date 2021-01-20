@@ -100,5 +100,23 @@ namespace ServiceTechnicianApp.Controllers
             ModelState.AddModelError("", "An error has occured, the customer information could not be updated.");
             return View(model);
         }
+        //GET: Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = CreateCustomerService();
+            var model = service.GetCustomerById(id);
+            return View(model);
+        }
+        //POST: Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteCustomer(int id)
+        {
+            var service = CreateCustomerService();
+            service.DeleteCustomer(id);
+            return RedirectToAction("Index");
+        }
     }
 }
