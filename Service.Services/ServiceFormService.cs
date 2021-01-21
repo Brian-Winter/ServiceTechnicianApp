@@ -33,6 +33,7 @@ namespace Service.Services
                                 .Select(
                                     e => new ServiceFormListAll
                                 {
+                                    FormId = e.FormId,
                                     CustomerId = e.CustomerId,
                                     Completed = e.Completed,
                                     UserId = e.UserId,
@@ -41,6 +42,29 @@ namespace Service.Services
 
                         
                                  }
+                );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<ServiceFormListAll> ViewAllCustomerForms(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                                .ServiceForms
+                                .Where(e => e.CustomerId == id)
+                                .Select(
+                                    e => new ServiceFormListAll
+                                    {
+                                        
+                                        CustomerId = e.CustomerId,
+                                        Completed = e.Completed,
+                                        UserId = e.UserId,
+                                        MachineId = e.MachineId,
+                                        MachinePartId = e.MachinePartId
+
+
+                                    }
                 );
                 return query.ToArray();
             }
@@ -79,7 +103,7 @@ namespace Service.Services
 
                 return new ServiceFormDisplayDetails
                 {
-
+                    FormId = query.FormId,
                     StartTime = query.StartTime,
                     FinishTime = query.FinishTime,
                     Completed = query.Completed,
@@ -229,6 +253,8 @@ namespace Service.Services
                 var entity = ctx
                                 .ServiceForms
                                 .Single(e => e.FormId == model.FormId);
+
+                entity.FormId = model.FormId;
                 entity.Completed = model.Completed;
                 entity.StartTime = model.StartTime;
                 entity.FinishTime = model.FinishTime;

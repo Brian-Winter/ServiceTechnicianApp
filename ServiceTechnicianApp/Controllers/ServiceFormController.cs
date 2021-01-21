@@ -11,18 +11,26 @@ namespace ServiceTechnicianApp.Controllers
 {
     public class ServiceFormController : Controller
     {
-        [Authorize]
-        private ServiceFormService CreateFormService()
+        
+        private ServiceFormService CreateFormServiceForUser()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ServiceFormService(userId);
             return service;
         }
-        
+        private ServiceFormService CreateFormService()
+        {
+            
+            var service = new ServiceFormService();
+            return service;
+        }
+
         // GET: ServiceForm
         public ActionResult Index()
         {
+            
             var service = CreateFormService();
+           
             var model = service.ViewAllForms();
             return View(model);
         }
@@ -41,7 +49,7 @@ namespace ServiceTechnicianApp.Controllers
             {
                 return View(model);
             }
-            var service = CreateFormService();
+            var service = CreateFormServiceForUser();
             if (service.CreateServiceForm(model))
             {
                 return RedirectToAction("Index");
@@ -55,6 +63,13 @@ namespace ServiceTechnicianApp.Controllers
         {
             var service = CreateFormService();
             var model = service.GetFormForDetails(id);
+            return View(model);
+        }
+        //GET: CUSTOMER SPECIFIC DETAILS
+        public ActionResult CustomerDetails(int id)
+        {
+            var service = CreateFormService();
+            var model = service.ViewAllCustomerForms(id);
             return View(model);
         }
         //GET: EDIT
@@ -95,7 +110,7 @@ namespace ServiceTechnicianApp.Controllers
 
             if (service.EditServiceForm(model))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
             ModelState.AddModelError("", "An error has occured.");
             return View(model);

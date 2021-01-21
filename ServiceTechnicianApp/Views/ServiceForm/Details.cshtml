@@ -7,7 +7,11 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ServiceFormDetails</h4>
+    <p>
+        <button>@Html.ActionLink("Edit", "Edit", new { id = Model.FormId })</button> 
+    </p>
+
+   
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -99,8 +103,12 @@
         </dd>
 
     </dl>
+    <p>
+        <button>
+            @Html.ActionLink("Return to main", "Index", "Home")
+        </button>
+        <button>
+                @Html.ActionLink("Return to Service Form List", "Index")
+        </button>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

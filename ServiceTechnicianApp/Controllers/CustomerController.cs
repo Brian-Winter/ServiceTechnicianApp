@@ -10,6 +10,7 @@ namespace ServiceTechnicianApp.Controllers
 {
     public class CustomerController : Controller
     {
+        
         private CustomerService CreateCustomerService()
         {
             var service = new CustomerService();

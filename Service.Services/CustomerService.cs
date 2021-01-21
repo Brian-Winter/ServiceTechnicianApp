@@ -44,6 +44,7 @@ namespace Service.Services
                                 .Single(e => e.CustomerId == id);
                 return new CustomerDetails
                 {
+                    CustomerId = query.CustomerId,
                     CompanyName = query.CompanyName,
                     City = query.City,
                     State = query.State,

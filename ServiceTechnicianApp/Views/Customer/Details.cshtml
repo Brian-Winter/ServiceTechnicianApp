@@ -6,10 +6,10 @@
 
 <h2>Customer Details</h2>
 
-<div>
+<div class="container">
     <h4>Customer Details</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal col-md-8">
         <dt>
             @Html.DisplayNameFor(model => model.CustomerId)
         </dt>
@@ -71,7 +71,12 @@
 
     </dl>
 </div>
+<div class="col">
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.CustomerId  }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("History", "CustomerDetails", "ServiceForm", new { id = Model.CustomerId},"")
 </p>

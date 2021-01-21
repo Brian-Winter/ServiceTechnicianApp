@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Service.Model.ServiceFormModels.ServiceFormListAll>
+
+@{
+    ViewBag.Title = "CustomerDetails";
+}
+
+<h2>Service Visits by Customer</h2>
+
+<p>
+    <button>
+        @Html.ActionLink("Create New", "Create")
+    </button>
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Completed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MachineId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MachinePartId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Completed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MachineId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MachinePartId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerId)
+        </td>
+        <td>
+           <button> @Html.ActionLink("Edit", "Edit", new {  id=item.FormId }) </button>
+           <button> @Html.ActionLink("Details", "Details", new { id = item.FormId }) </button>
+           <button> @Html.ActionLink("Delete", "Delete", new { id = item.FormId })</button>
+        </td>
+    </tr>
+}
+
+</table>
