@@ -7,76 +7,82 @@
 <h2>Customer Details</h2>
 
 <div class="container">
-    <h4>Customer Details</h4>
+
     <hr />
-    <dl class="dl-horizontal col-md-8">
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CustomerId)
-        </dd>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> @Html.DisplayNameFor(model => model.CompanyName)</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.CompanyName)
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> @Html.DisplayNameFor(model => model.Address) </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.Address),<br />
+                @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CompanyName)
-        </dd>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> Service Contract</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.ServiceContract)
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> @Html.DisplayNameFor(model => model.MachineId)</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.MachineId) ,  @Html.ActionLink("View Machine Details", "Details", "Machine", new { id = Model.MachineId }, "")
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3>Customer History</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.ActionLink("Click to view history", "CustomerDetails", "ServiceForm", new { id = Model.CustomerId }, "")
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ServiceContract)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ServiceContract)
-        </dd>
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.MachineId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MachineId)
-            @Html.ActionLink("View Machine Details", "Details", "Machine", new { id = Model.MachineId },"" )
+    </div>
 
 
-        </dd>
 
-    </dl>
+
+
+
+
+
+
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
 <div class="col">
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
 </div>
-<p>
-    @Html.ActionLink("History", "CustomerDetails", "ServiceForm", new { id = Model.CustomerId},"")
-</p>

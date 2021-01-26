@@ -41,9 +41,7 @@
             @Html.DisplayFor(modelItem => item.Cost)
         </td>
         <td>
-            <button>@Html.ActionLink("Edit", "Edit", new { id = item.MachinePartId }) </button>
-            <button>@Html.ActionLink("Details", "Details", new { id = item.MachinePartId }) </button>
-
+            <button>@Html.ActionLink("Edit/Details", "Edit", new { id = item.MachinePartId }) </button>
         </td>
     </tr>
 }

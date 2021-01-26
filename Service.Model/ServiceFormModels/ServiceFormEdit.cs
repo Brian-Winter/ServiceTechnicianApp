@@ -22,8 +22,11 @@ namespace Service.Model.ServiceFormModels
         public long MeterReadTwo { get; set; }
         [Display(Name = "Amount Due on Completion")]
         public decimal CostDue { get; set; }
+        [Display(Name = "Machine Name ")]
         public int MachineId { get; set; }
+        [Display(Name = "Part Used")]
         public int MachinePartId { get; set; }
+        [Display(Name = "Customer Name")]
         public int CustomerId { get; set; }
     }
 }

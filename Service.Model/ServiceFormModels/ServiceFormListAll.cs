@@ -14,8 +14,11 @@ namespace Service.Model.ServiceFormModels
         public bool Completed { get; set; }
         [Display(Name = "Service Technician")] 
         public Guid UserId { get; set; }
+        [Display(Name = "Machine Name ")]
         public int MachineId { get; set; }
+        [Display(Name = "Part Used")]
         public int MachinePartId { get; set; }
+        [Display(Name = "Customer Name")]
         public int CustomerId { get; set; }
     }
 }

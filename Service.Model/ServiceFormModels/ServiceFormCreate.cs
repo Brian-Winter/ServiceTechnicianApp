@@ -26,7 +26,7 @@ namespace Service.Model.ServiceFormModels
         public int MachineId { get; set; }
         [Display(Name = "Part Number Used")]
         public string MachinePartId { get; set; }
-        [Display(Name = "Company Name")]
+        [Display(Name = "Customer Name")]
         public string CustomerId { get; set; }
 
     }

@@ -24,8 +24,11 @@ namespace Service.Model.ServiceFormModels
         public decimal CostDue { get; set; }
         [Display(Name = "Service Technician")]
         public Guid UserId { get; set; }
+        [Display(Name = "Machine Name")]
         public string MachineId { get; set; }
+        [Display(Name = "Parts")]
         public string MachinePartId { get; set; }
+        [Display(Name = "Customer Name")]
         public string CustomerId { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace Service.Model.MachineModels
 {
     public class MachineDetail
     {
+        
         public int MachineId { get; set; }
         [Display(Name = "Machine Name")]
         public string MachineName { get; set; }

@@ -7,108 +7,88 @@
 <h2>Details</h2>
 
 <div>
-    <p>
-        <button>@Html.ActionLink("Edit", "Edit", new { id = Model.FormId })</button> 
-    </p>
+    
+        <button>@Html.ActionLink("Edit", "Edit", new { id = Model.FormId })</button>
+    
 
-   
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FormId)
-        </dt>
+    <div class="container">
+        <div class="row">
+            <div class="center col-md-4">
+                <h2>@Html.DisplayFor(model => model.CustomerId)</h2>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FormId)
-        </dd>
+        <div class="row">
+            <div class="center col-md-3">
+                <strong>@Html.DisplayNameFor(model => model.StartTime)</strong>: @Html.DisplayFor(model => model.StartTime)
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </dt>
+            <div class="col-md-3">
+                <strong>@Html.DisplayNameFor(model => model.FinishTime)</strong>: @Html.DisplayFor(model => model.FinishTime)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="center col-md-3">
+                <strong>@Html.DisplayNameFor(model => model.MeterReadOne)</strong>: @Html.DisplayFor(model => model.MeterReadOne)
+            </div>
+            <div class="col-md-3">
+                <strong>@Html.DisplayNameFor(model => model.MeterReadTwo)</strong>: @Html.DisplayFor(model => model.MeterReadTwo)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="center col-md-4">
+                <strong> @Html.DisplayNameFor(model => model.Completed)</strong> : @Html.DisplayFor(model => model.Completed)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="center col-md-4">
+                <strong> @Html.DisplayNameFor(model => model.CostDue)</strong> : $@Html.DisplayFor(model => model.CostDue)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="center col-md-6">
+                <strong> @Html.DisplayNameFor(model => model.UserId)</strong> : $@Html.DisplayFor(model => model.UserId)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="center col-md-4">
+                <strong> @Html.DisplayNameFor(model => model.MachineId)</strong> : @Html.DisplayFor(model => model.MachineId)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="center col-md-4">
+                <strong> @Html.DisplayNameFor(model => model.MachinePartId)</strong> : @Html.DisplayFor(model => model.MachinePartId)
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FinishTime)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FinishTime)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MeterReadOne)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MeterReadOne)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MeterReadTwo)
-        </dt>
+    <br />
+    <br />
+    <br />
+    <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.MeterReadTwo)
-        </dd>
+    
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Completed)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Completed)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CostDue)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CostDue)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MachineId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MachineId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MachinePartId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MachinePartId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CustomerId)
-        </dd>
-
-    </dl>
     <p>
         <button>
             @Html.ActionLink("Return to main", "Index", "Home")
         </button>
         <button>
-                @Html.ActionLink("Return to Service Form List", "Index")
+            @Html.ActionLink("Return to Service Form List", "Index")
         </button>
     </p>
 </div>
