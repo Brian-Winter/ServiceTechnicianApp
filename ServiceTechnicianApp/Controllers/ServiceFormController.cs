@@ -59,6 +59,7 @@ namespace ServiceTechnicianApp.Controllers
 
         }
         //GET: DETAILS
+        [Authorize]
         public ActionResult Details(int id)
         {
             var service = CreateFormService();
@@ -79,7 +80,7 @@ namespace ServiceTechnicianApp.Controllers
             var detail = service.GetFormById(id);
             var model = new ServiceFormEdit
             {
-                FormId = detail.FormId,
+                FormId = id,
                 Completed = detail.Completed,
                 StartTime = detail.StartTime,
                 FinishTime = detail.FinishTime,

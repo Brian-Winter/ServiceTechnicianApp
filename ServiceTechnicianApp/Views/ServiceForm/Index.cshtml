@@ -54,8 +54,8 @@
                         @Html.DisplayFor(modelItem => item.CustomerId)
                     </td>
                     <td>
-                        <button>@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ })</button>
-                        <button>@Html.ActionLink("Details", "Details", new { /* id = Model.PrimaryKey */ })</button>
+                        <button>@Html.ActionLink("Edit", "Edit", new {  id = item.FormId })</button>
+                        <button>@Html.ActionLink("Details", "Details", new { id = item.FormId })</button>
                     </td>
                 </tr>
             }
