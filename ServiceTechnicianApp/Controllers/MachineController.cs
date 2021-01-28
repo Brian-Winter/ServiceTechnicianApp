@@ -1,4 +1,5 @@
 ﻿using Service.Model.MachineModels;
+using Service.Contracts;
 using Service.Services;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ServiceTechnicianApp.Controllers
 {
     public class MachineController : Controller
     {
+        private readonly IMachineService _machineService;
         private MachineService CreateMachineService()
         {
             var service = new MachineService();

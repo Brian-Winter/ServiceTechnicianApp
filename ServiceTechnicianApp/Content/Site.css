@@ -26,10 +26,12 @@ textarea {
     max-width: 280px;
 }
 .navbar {
-    background-color: #5bc0de;
+    background-color: #fff;
    
 }
-
+.icon-bar {
+    background-color: #5bc0de;
+}
 .square-box {
     padding: 30px;
     margin: 5px;
@@ -45,4 +47,7 @@ textarea {
 .footer{
     position:fixed;
     bottom: 0;
+}
+.btn-danger a{
+   color: white !important;
 }

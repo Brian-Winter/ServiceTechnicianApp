@@ -1,4 +1,5 @@
 ﻿using Service.Data;
+using Service.Contracts;
 using Service.Model.MachineModels;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class MachineService
+    public class MachineService : IMachineService
     {
 
         //Read All Assigned Machines
