@@ -112,7 +112,7 @@ namespace Service.Services
                     CostDue = query.CostDue,
                     MachineId = FindMachineName(query.MachineId),
                     MachinePartId = FindPartName(query.MachinePartId),
-                    CustomerId = FindCustomerId(query.CustomerId),
+                    CustomerId = FindCustomerName(query.CustomerId),
                     UserId = query.UserId
 
                 };
@@ -188,7 +188,7 @@ namespace Service.Services
             }
         }
         
-       private string FindCustomerId(int companyId)
+        private string FindCustomerName(int companyId)
         {
             using (var ctx = new ApplicationDbContext())
             {

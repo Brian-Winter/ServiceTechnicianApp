@@ -1,4 +1,5 @@
-﻿using Service.Model.CustomerModels;
+﻿using Service.Contracts;
+using Service.Model.CustomerModels;
 using Service.Services;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace ServiceTechnicianApp.Controllers
 {
     public class CustomerController : Controller
     {
-        
+        private readonly ICustomerService _customerService;
         private CustomerService CreateCustomerService()
         {
             var service = new CustomerService();

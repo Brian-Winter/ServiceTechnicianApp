@@ -1,4 +1,5 @@
-﻿using Service.Model.MachinePartModels;
+﻿using Service.Contracts;
+using Service.Model.MachinePartModels;
 using Service.Services;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ServiceTechnicianApp.Controllers
 {
     public class PartController : Controller
     {
+        private readonly IMachinePartService _machinePartService;
         private PartService CreatePartService()
         {
             var service = new PartService();

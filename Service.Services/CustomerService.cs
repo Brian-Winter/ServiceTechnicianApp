@@ -1,4 +1,5 @@
 ﻿using Service.Data;
+using Service.Contracts;
 using Service.Model.CustomerModels;
 using Service.Model.MachineModels;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
 
 
@@ -91,10 +92,6 @@ namespace Service.Services
                 return query.ToArray();
             }
         }
-
-
-
-
         //CREATE
         public bool CreateCustomer(CustomerCreate model)
         {

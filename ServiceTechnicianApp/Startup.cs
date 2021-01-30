@@ -19,6 +19,9 @@ namespace ServiceTechnicianApp
             // OPTIONAL: Register web abstractions like HttpContextBase.
             builder.RegisterModule<AutofacWebTypesModule>();
             builder.RegisterType<MachineService>().As<IMachineService>();
+            builder.RegisterType<CustomerService>().As<ICustomerService>();
+            builder.RegisterType<PartService>().As<IMachinePartService>();
+            builder.RegisterType<ServiceFormService>().As<IServiceFormService>();
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

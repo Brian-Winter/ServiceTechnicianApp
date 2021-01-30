@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Service.Contracts;
 using Service.Model.ServiceFormModels;
 using Service.Services;
 using System;
@@ -11,7 +12,7 @@ namespace ServiceTechnicianApp.Controllers
 {
     public class ServiceFormController : Controller
     {
-        
+        private readonly IServiceFormService _serviceFormService;
         private ServiceFormService CreateFormServiceForUser()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
