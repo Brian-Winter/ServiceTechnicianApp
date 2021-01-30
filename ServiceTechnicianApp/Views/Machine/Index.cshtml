@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Service.Model.MachineModels.MachineListAll>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Base Machine", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.MachineName)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfDrawers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.MachineName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfDrawers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MachineId }) |
+            @Html.ActionLink("Create Serial Number", "CreateSerial", new { id = item.MachineId }) |
+            @Html.ActionLink("Machine", "Machine", new { id = item.MachineName })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.ActionLink("Machine", "Machine")

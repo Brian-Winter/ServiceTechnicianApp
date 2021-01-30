@@ -7,13 +7,13 @@ namespace Service.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class updatedmachinepartdata : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedmachinepartdata));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012122052283_updated machinepart data"; }
+            get { return "202101050248333_first"; }
         }
         
         string IMigrationMetadata.Source

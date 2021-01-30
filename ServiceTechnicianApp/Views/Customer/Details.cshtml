@@ -1,0 +1,89 @@
+﻿@model Service.Model.CustomerModels.CustomerDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Customer Details</h2>
+
+<div class="container">
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> @Html.DisplayNameFor(model => model.CompanyName)</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.CompanyName)
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> @Html.DisplayNameFor(model => model.Address) </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.Address),<br />
+                @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State)
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> Service Contract</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.ServiceContract)
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3> @Html.DisplayNameFor(model => model.MachineId)</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.DisplayFor(model => model.MachineId) ,  @Html.ActionLink("View Machine Details", "Details", "Machine", new { id = Model.MachineId }, "")
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h3>Customer History</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @Html.ActionLink("Click to view history", "CustomerDetails", "ServiceForm", new { id = Model.CustomerId }, "")
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="col">
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    <button class="btn-danger">  @Html.ActionLink("Delete", "Delete", new { id = Model.CustomerId })</button>
+</div>

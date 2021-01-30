@@ -12,7 +12,6 @@ namespace Service.Data
     {
         [Key]
         public int MachineId { get; set; }
-        [Required]
         public long SerialNumber { get; set; }
         [Required]
         public string MachineName { get; set; }
@@ -22,10 +21,9 @@ namespace Service.Data
         public int SpeedPerMinute { get; set; }
         [Required]
         public bool Color { get; set; }
-        
         public decimal Cost { get; set; }
-        [ForeignKey(nameof(MachinePart))]
-        public List<string> PartNumber { get; set; }
-        public MachinePart MachinePart {get; set; }
+        //[ForeignKey(nameof(MachinePart))]
+        //public List<string> PartNumber { get; set; }
+        //public MachinePart MachinePart {get; set; }
     }
 }

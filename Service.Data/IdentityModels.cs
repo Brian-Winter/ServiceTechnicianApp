@@ -41,6 +41,14 @@ namespace Service.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+            modelBuilder.Entity<Customer>()
+                .HasRequired(e => e.Machine)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<ServiceForm>()
+                .HasRequired(e => e.Customer)
+                .WithMany()
+                .WillCascadeOnDelete(false);
         }
 
         public static ApplicationDbContext Create()

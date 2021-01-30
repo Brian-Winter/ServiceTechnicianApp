@@ -29,5 +29,8 @@ namespace Service.Data
         [ForeignKey(nameof(MachinePart))]
         public int MachinePartId { get; set; }
         public virtual MachinePart MachinePart { get; set; }
+        [ForeignKey(nameof(Customer))]
+        public int CustomerId { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

@@ -1,8 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    
+   
 }
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -25,9 +26,28 @@ textarea {
     max-width: 280px;
 }
 .navbar {
+    background-color: #fff;
    
-    background-color: #00a9e8;
 }
-.navbar .navbar-header {
-    color: #000000;
+.icon-bar {
+    background-color: #5bc0de;
+}
+.square-box {
+    padding: 30px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #4493aa;
+}
+
+
+.center .row{
+    margin: 5px auto;
+  
+}
+.footer{
+    position:fixed;
+    bottom: 0;
+}
+.btn-danger a{
+   color: white !important;
 }
